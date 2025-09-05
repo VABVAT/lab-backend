@@ -8,9 +8,11 @@ datasource db {
 }
 
 model lab_users {
-  id       Int      @id @default(autoincrement())
-  username String   @unique(map: "lab_users_email_key") @db.VarChar(255)
-  isAdmin  Boolean? @default(false)
+  id          Int      @id @default(autoincrement())
+  username    String   @unique(map: "lab_users_email_key") @db.VarChar(255)
+  isAdmin     Boolean? @default(false)
+  hasStarted  Boolean? @default(false)
+  hasFinished Boolean? @default(false)
 }
 
 model test_lab {
