@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model lab_users {
+  id       Int      @id @default(autoincrement())
+  username String   @unique(map: "lab_users_email_key") @db.VarChar(255)
+  isAdmin  Boolean? @default(false)
+}
+
+model test_lab {
+  id          Int       @id @default(autoincrement())
+  email       String    @unique(map: "email") @db.VarChar(255)
+  completed   Boolean?  @default(false)
+  finished_at DateTime? @db.Timestamp(0)
+}
+
+model users {
+  id         BigInt  @id @default(autoincrement())
+  email      String  @unique(map: "email") @db.VarChar(255)
+  winnings   Int?    @default(0)
+  picture_id String? @db.Text
+}
