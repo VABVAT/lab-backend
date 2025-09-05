@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "prisma:generate": "prisma generate",
+    "build": "prisma generate",
+    "vercel-build": "prisma generate"
   },
   "private": true,
   "dependencies": {
